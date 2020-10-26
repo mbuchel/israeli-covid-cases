@@ -1,0 +1,55 @@
+name:                israeli-covid-cases
+version:             0.1.0.0
+github:              "mbuchel/israeli-covid-cases"
+license:             BSD3
+author:              "Michael Buchel"
+maintainer:          "michael@themimgroup.com"
+copyright:           "Michael Buchel"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/mbuchel/israeli-covid-cases#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- bytestring
+- cassava
+- http-client
+- http-client-tls
+- hspec
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  israeli-covid-cases-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - israeli-covid-cases
+
+tests:
+  israeli-covid-cases-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - israeli-covid-cases
